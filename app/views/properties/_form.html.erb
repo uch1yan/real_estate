@@ -1,4 +1,4 @@
-<%= form_with(model: @property, local: true, url: choose_new_or_edit) do |form| %>
+<%= form_with(model: @property, local: true) do |form| %>
 
   <% if @property.errors.any? %>
     <div class="error_explanation">
@@ -12,19 +12,17 @@
   <% end %>
 
   <%= form.label :名前 %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name %><br>
 
   <%= form.label :賃料 %>
-  <%= form.text_field :rent %>
+  <%= form.text_field :rent %><br>
 
   <%= form.label :住所 %>
-  <%= form.text_field :address %>
+  <%= form.text_field :address %><br>
 
   <%= form.label :築年数 %>
-  <%= form.text_field :year %>
+  <%= form.text_field :year %><br>
 
-  <%= form.label :備考 %>
-  <%= form.text_field :content %>
 
   <%= form.submit "登録する" %>
 

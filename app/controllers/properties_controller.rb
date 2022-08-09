@@ -28,8 +28,17 @@ class PropertiesController < ApplicationController
 
   def update
     @property = Property.find(params[:id])
-
+    if @property.update(property_params)
+      redirect_to properties_path, notice:'更新しました！'
+    else
+      render :edit
+    end 
   end
+
+  # def confirm
+  #   @property = Property.new(property_params)
+  #   render :new if @property.invalid?
+  # end
 
   def destroy
     @property = Property.find(params[:id])
