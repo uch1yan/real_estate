@@ -1,0 +1,25 @@
+<h1>物件一覧</h1>
+
+<table>
+  <table-head>
+    <tr>
+      <th>物件名</th>
+      <th>賃料</th>
+      <th>住所</th>
+      <th>築年数</th>
+      <th>備考</th>
+    </tr>
+  </table-head>
+
+  <table-body>
+    <% @properties.each do |property| %>
+    <tr>
+      <td><%= property.name %></td>
+      <td><%= property.rent %></td>
+      <td><%= property.address %></td>
+      <td><%= property.year %></td>
+      <td><%= property.content %></td>
+    </tr>
+    <% end %>
+  </table-body>
+</table>
