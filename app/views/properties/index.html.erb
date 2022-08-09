@@ -19,6 +19,9 @@
       <td><%= property.address %></td>
       <td><%= property.year %></td>
       <td><%= property.content %></td>
+      <td><%= link_to '詳細', property_path(property.id) %></td>
+      <td><%= link_to '編集', edit_property_path(property.id) %></td>
+      <td><%= link_to '削除', property_path(property.id), method: :delete, data: { confirm: 'Are you okay?' } %></td>
     </tr>
     <% end %>
   </table-body>

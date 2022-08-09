@@ -1,0 +1,18 @@
+<%= form_with(model: @property, local: true) do |form| %>
+
+  <%= form.label :名前 %>
+  <%= form.hidden_field :name %>
+
+  <%= form.label :賃料 %>
+  <%= form.hidden_field :rent %>
+
+  <%= form.label :住所 %>
+  <%= form.hidden_field :address %>
+
+  <%= form.label :築年数 %>
+  <%= form.hidden_field :year %>
+
+  <%= form.label :備考 %>
+  <%= form.hidden_field :content %>
+
+<% end %>
