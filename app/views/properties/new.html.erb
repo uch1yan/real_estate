@@ -2,6 +2,17 @@
 
   <h1>物件登録</h1>
 
+  <% if @property.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= @property.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form.label :名前 %>
   <%= form.text_field :name %>
 
