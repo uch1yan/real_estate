@@ -10,6 +10,8 @@
 
   <p><strong>備考:</strong><%= @property.content %></p><br>
 
+  <hr>
+  
   <% if @property.nearest_stations.any? %>
   <% n = 0 %>
   <% @nearest_stations.each do |nearest_station| %>

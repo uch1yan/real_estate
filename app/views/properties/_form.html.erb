@@ -26,6 +26,8 @@
   <%= form.label :備考 %><br>
   <%= form.text_field :content %><br>
 
+  <hr>
+
   <%= form.fields_for :nearest_stations do |nearest_station| %>
     <h2>最寄り駅<%= nearest_station.index + 1 %></h2>
     <div class="field">
