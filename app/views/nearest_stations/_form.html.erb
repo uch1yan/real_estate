@@ -1,0 +1,26 @@
+<%= form_with(model: nearest_station, local: true) do |form| %>
+  <% if nearest_station.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= nearest_station.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% nearest_station.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :train_line, '路線名' %><br>
+  <%= form.text_field :train_line %><br>
+
+  <%= form.label :station_name, '駅名' %><br>
+  <%= form.text_field :station_name %>円<br>
+
+  <%= form.label :on_foot, '徒歩分数' %><br>
+  <%= form.text_field :on_foot %><br>
+
+  <%= form.label :property_id %>
+  <%= form.text_field :property_id %>
+
+  <%= form.submit %>
+<% end %>

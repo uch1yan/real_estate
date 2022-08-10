@@ -6,12 +6,14 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    2.times { @property.nearest_stations.new }
   end
 
   def create
     @property = Property.new(property_params)
+    @property.nearest_stations.build
     if @property.save
-      redirect_to properties_path, notice: '投稿しました！'
+      redirect_to @property, notice: '投稿しました！'
     else
       render :new
     end
@@ -19,26 +21,22 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    @nearest_stations = @property.nearest_stations
   end
 
   def edit
     @property = Property.find(params[:id])
-
+    @property.nearest_stations.new
   end
 
   def update
     @property = Property.find(params[:id])
     if @property.update(property_params)
-      redirect_to properties_path, notice:'更新しました！'
+      redirect_to @property, notice:'更新しました！'
     else
       render :edit
-    end 
+    end
   end
-
-  # def confirm
-  #   @property = Property.new(property_params)
-  #   render :new if @property.invalid?
-  # end
 
   def destroy
     @property = Property.find(params[:id])
@@ -55,7 +53,8 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:name, :rent, :address, :year, :content)
+    params.require(:property).permit(:name, :rent, :address, :year, :content,
+      nearest_stations_attributes: [:train_line, :station_name, :on_foot, :prorerty_id, :id, :_destroy])
   end
 
 end

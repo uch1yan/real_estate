@@ -1,0 +1,12 @@
+<%= notice %>
+
+<p>路線名 <%= @nearest_stations.first.train_line %></p>
+
+<p>駅名 <%= @nearest_stations.first.station_name %></p>
+
+<p>徒歩分数 <%= @nearest_stations.first.on_foot %></p>
+
+<p>物件<%= @nearest_station.property_id %></p>
+
+<%= link_to '編集', edit_nearest_station_path(@nearest_station) %> |
+<%= link_to '戻る', nearest_station_path %>
